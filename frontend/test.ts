@@ -1,3 +1,6 @@
+//import {User} from "./User.ts";
+
+
 console.log("HELLO WORLD")
 
 alert("hello hello compile")
@@ -28,3 +31,4 @@ function multiply() {
 }
 
 multiply();
+
