@@ -8,6 +8,11 @@
     <!--Evento click de angular llama a una función en el typescript del componente:-->
 
     <input type="checkbox" [(ngModel)]="state" name="state">
+    <!--la etiqueta HTML Select permite crear una lista seleccionable: -->
+    <select [(ngModel)]="idtegory" name="idtegory">
+      <option *ngFor="let category of categories; index as i; first as isFirst" value="{{category}}">{{category}}</option>
+    </select>
+
     <button type="button" (click)="save()">Save</button>
 </form>
 
