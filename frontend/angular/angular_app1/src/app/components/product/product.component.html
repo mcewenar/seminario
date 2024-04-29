@@ -1,0 +1,17 @@
+<form action="">
+    <!--IMPORTANTE: NgModel: hay que definir el atributo name en el html, para identificarlo-->
+    <input type="text" [(ngModel)]="name" placeholder="name" id="name" name="name" readonly>
+    <!--<input *ngIf="!active" type="text" [(ngModel)]="description" placeholder="description" id="description" name="description" readonly>-->
+    
+    <input type="number" [(ngModel)]="price" placeholder="price" id="price" name="price">
+    <label *ngIf="!state">{{description}}</label>
+    <!--Evento click de angular llama a una función en el typescript del componente:-->
+
+    <input type="checkbox" [(ngModel)]="state" name="state">
+    <button type="button" (click)="save()">Save</button>
+</form>
+
+<!--ngModel: directiva bidireccional, usada mucho en formularios
+  La interpolación {{}} manda del código typescript al html, el 
+  ngModel sí es bidireccional.
+-->
