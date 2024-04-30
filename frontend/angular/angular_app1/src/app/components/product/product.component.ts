@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ProductsService } from '../../services/products.service';
+import { Product } from './product';
 
 @Component({
   selector: 'app-product',
@@ -11,9 +13,18 @@ import { FormsModule } from '@angular/forms';
 })
 export class ProductComponent {
 
-  /*constructor(private service: ProductService) {
+  constructor(private service: ProductsService) {
 
-  }*/
+  }
+  name: string = "";
+  description: string = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
+  price: number = 0;
+  state: boolean= false;
+  active: boolean = false;
+  idtegory: string="";
+  
+
+  pod: Product= {name:this.name,description:this.description,price:this.price,state:this.state,idtegory:this.idtegory}
 
   //categories:string[]=["Health","Botanic","Clothes","Shoes","Beauty"]
   categories:any[]=[
@@ -23,12 +34,6 @@ export class ProductComponent {
     {id:'4',name:'beauty article'}
 
   ]
-  name: string = "";
-  description: string = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
-  price: number = 0;
-  state: boolean= false;
-  active: boolean = false;
-  idtegory: string="";
   
 
   ngOnInit(): void {
