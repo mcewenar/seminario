@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ProductsService } from '../../services/products.service';
-import { Product } from './product';
+import { Product } from './Product';
 
 @Component({
   selector: 'app-product',
@@ -37,6 +37,7 @@ export class ProductComponent {
   
 
   ngOnInit(): void {
+    this.list();
 
   }
 
@@ -47,6 +48,19 @@ export class ProductComponent {
     console.log(this.state);
     console.log(this.idtegory);
 
+    let prod: Product = {name:this.name,description:this.description,price:this.price,state:this.state,idtegory:this.idtegory}
+    let res=this.service.save(prod);
+    if(res) {
+      console.log("successful save")
+    } else {
+      console.error("ERROR SAVE")
+
+    }
+
+  }
+
+  list() {
+    this.service.get("3");
   }
 
 }
