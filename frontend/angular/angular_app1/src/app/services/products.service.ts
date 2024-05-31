@@ -7,13 +7,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductsService {
 
+
   endpoint: string = ""
   operation="";
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-
   }
 
   save(product:Product): boolean {
@@ -39,7 +39,7 @@ export class ProductsService {
         console.log(error);
         return false;
       })
-      return false;
+      return false
   }
 
   update(product:Product) {
@@ -52,5 +52,9 @@ export class ProductsService {
       }
     );
 
+  }
+
+  get2(): Product {
+    return {name:"calculadora", description: "lorem ipsum",price:3, state:true, idtegory:"1" }
   }
 }

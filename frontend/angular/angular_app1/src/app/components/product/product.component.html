@@ -16,6 +16,19 @@
     <button type="button" (click)="save()">Save</button>
 </form>
 
+
+<table>
+  <td>ID</td>
+  <td>Name</td>
+  <td>description</td>
+  <td>Precio</td>
+  <tr *ngFor="let product of products; index as i; first as isFirst">
+    <!--COMPONENTE PADRE-->
+    <!--PASAR DE COMPONENTE HIJO A PADRE-->
+    <app-row [name]="product.name" [description]="product.description"></app-row>
+  </tr>
+</table>
+
 <!--ngModel: directiva bidireccional, usada mucho en formularios
   La interpolación {{}} manda del código typescript al html, el 
   ngModel sí es bidireccional.

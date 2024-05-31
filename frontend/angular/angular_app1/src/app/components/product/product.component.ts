@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ProductsService } from '../../services/products.service';
 import { Product } from './Product';
+import { RowComponent } from '../row/row.component';
 
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RowComponent],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css'
 })
@@ -16,6 +17,17 @@ export class ProductComponent {
   constructor(private service: ProductsService) {
 
   }
+
+  ngOnInit(): void {
+    //this.list();
+    let prduc = this.service.get2();
+    this.products.push(prduc);
+
+  }
+
+  products:Product[]=[];
+
+
   name: string = "";
   description: string = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.";
   price: number = 0;
@@ -34,12 +46,6 @@ export class ProductComponent {
     {id:'4',name:'beauty article'}
 
   ]
-  
-
-  ngOnInit(): void {
-    this.list();
-
-  }
 
   save(): void {
     console.log(this.name);
